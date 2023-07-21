@@ -34,9 +34,9 @@ import NavigationMenu from './components/NavigationMenu.vue'
   background-color: #141625;
   min-height: 100vh;
   flex-direction: column;
-  /* @media(min-width: 900px){
+  @media(min-width: 900px){
     flex-direction: row;
-  } */
+  }
   .app-content{
     padding: 0 20px;
     
