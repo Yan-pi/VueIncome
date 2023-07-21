@@ -1,10 +1,22 @@
+<!-- eslint-disable no-unused-labels -->
 <script setup>
 import { RouterView } from 'vue-router'
+import NavigationMenu from './components/NavigationMenu.vue'
 
+  components:{
+    NavigationMenu
+  }
 </script>
 
 <template>
-  <RouterView />
+  <div>
+    <div class="app flex flex-column">
+      <NavigationMenu/>
+      <div class="app-content flex felx-colum">
+        <RouterView />
+      </div>
+    </div>
+  </div>
 </template>
 
 <style lang="scss">
@@ -16,6 +28,19 @@ import { RouterView } from 'vue-router'
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
   background-color: #141625;
+}
+
+.app{
+  background-color: #141625;
+  min-height: 100vh;
+  flex-direction: column;
+  /* @media(min-width: 900px){
+    flex-direction: row;
+  } */
+  .app-content{
+    padding: 0 20px;
+    
+  }
 }
 
 button,
