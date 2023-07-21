@@ -33,3 +33,5 @@ npm run build
 ```sh
 npm run lint
 ```
+
+[link do video](https://www.youtube.com/watch?v=vsJtN54aA7w&ab_channel=JohnKomarnicki)
