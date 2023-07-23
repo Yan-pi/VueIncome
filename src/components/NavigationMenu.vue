@@ -1,9 +1,9 @@
 <template>
- <header class="flex">
+<header class="flex">
   <div class="branding flex">
-    <img src="@\assets\wallet-outline.svg" alt="" >
+    <img src="@/assets/file-invoice-dollar-solid.png" alt="" />
   </div>
- </header>
+</header>
 </template>
 
 <script>
