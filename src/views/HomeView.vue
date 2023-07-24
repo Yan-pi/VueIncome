@@ -4,9 +4,19 @@ export default {
   data(){
     return{
       filterMenu: null
-    }
+    };
   },
-  components: {}
+
+  components: {},
+  methods: {
+    newInvoice(){
+
+    },
+
+    toggleFilterMenu(){
+      this.filterMenu = !this.filterMenu;
+    }
+  }
 }
 </script>
 
@@ -19,7 +29,7 @@ export default {
         <span>There are total invoices</span>
       </div>
       <div class="right flex">
-        <div class="filter flex">
+        <div @click="toggleFilterMenu" class="filter flex">
           <span>Filter by status </span>
           <img src="@/assets/icon-arrow-down.svg" alt="" />
           <ul  class="filter-menu">
@@ -29,7 +39,7 @@ export default {
             <li>Clear Filter</li>
           </ul>
         </div>
-        <div class="button flex">
+        <div @click="newInvoice" class="button flex">
           <div class="inner-button flex">
             <img src="@/assets/icon-plus.svg" alt="" />
           </div>
@@ -86,6 +96,7 @@ export default {
         }
 
         .filter-menu {
+          
           width: 120px;
           position: absolute;
           top: 25px;
