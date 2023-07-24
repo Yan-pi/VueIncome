@@ -3,6 +3,8 @@
 <script>
 import { RouterView } from 'vue-router'
 import NavigationMenu from './components/NavigationMenu.vue'
+import InvoiceModal from './components/InvoiceModal.vue'
+
 export default {
   data() {
     return {
@@ -11,7 +13,8 @@ export default {
   },
 
   components: {
-    NavigationMenu
+    NavigationMenu,
+    InvoiceModal
   },
 
   created() {
@@ -37,7 +40,7 @@ export default {
     <div v-if="!mobile" class="app flex flex-column">
       <NavigationMenu />
       <div class="app-content flex felx-colum">
-        <RouterView />
+        <InvoiceModal />
       </div>
     </div>
     <div v-else class="mobile-message flex flex-column">
