@@ -86,9 +86,9 @@ export default {
 
 // animated invoice
 
-.invoice-enter-active,
-.invoice-leave-active {
-  transition: 0.8s ease all;
+.INVOICE-ENTER-ACTIVE,
+.INVOICE-LEAVE-ACTIVE {
+  TRANSITION: 0.8S EASE ALL;
 }
 
 .invoice-enter-from,
