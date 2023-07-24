@@ -11,37 +11,45 @@ export default {
 </script>
 
 <template>
-  <main>
-    <div class="home container">
-      <div class="header flex">
-        <div class="left flex flex-column">
-          <h1>Invoices</h1>
-          <span>There are 4 total invoice</span>
+  <div class="home container">
+    <!-- Header -->
+    <div class="header flex">
+      <div class="left flex flex-column">
+        <h1>Invoices</h1>
+        <span>There are total invoices</span>
+      </div>
+      <div class="right flex">
+        <div class="filter flex">
+          <span>Filter by status </span>
+          <img src="@/assets/icon-arrow-down.svg" alt="" />
+          <ul  class="filter-menu">
+            <li>Draft</li>
+            <li>Pending</li>
+            <li>Paid</li>
+            <li>Clear Filter</li>
+          </ul>
         </div>
-        <div class="right flex">
-          <div @click="toggleFilterMenu" class="filter flex" ref="filter">
-            <span>Filter by Status</span>
-            <img src="@/assets/icon-arrow-down.svg" />
-            <ul v-show="filterMenu" class="filter-menu">
-              <li>Draft</li>
-              <li>Pending</li>
-              <li>Paid</li>
-              <li>Clear filter</li>
-            </ul>
+        <div class="button flex">
+          <div class="inner-button flex">
+            <img src="@/assets/icon-plus.svg" alt="" />
           </div>
-          <div @click="newInvoice" class="button flex">
-            <div class="inner-button flex">
-              <img src="@/assets/icon-plus.svg" />
-            </div>
-            <span>New invoice</span>
-          </div>
+          <span>New Invoice</span>
         </div>
       </div>
     </div>
-  </main>
+    <!-- Invoices -->
+    <div> 0">
+    </div>
+    <div class="empty flex flex-column">
+      <img src="@/assets/illustration-empty.svg" alt="" />
+      <h3>There is nothing here</h3>
+      <p>Create a new invoice by clicking the New Invoice button and get started</p>
+    </div>
+  </div>
 </template>
 
 <style lang="scss" scoped>
+
 .home {
   color: #fff;
 
@@ -89,6 +97,7 @@ export default {
             cursor: pointer;
             font-size: 12px;
             padding: 10px 20px;
+            border-radius: 5px;
 
             &:hover {
               color: #1e2139;
