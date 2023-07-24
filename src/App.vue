@@ -1,46 +1,99 @@
+<!-- eslint-disable no-unused-vars -->
 <!-- eslint-disable no-unused-labels -->
-<script setup>
+<script>
 import { RouterView } from 'vue-router'
 import NavigationMenu from './components/NavigationMenu.vue'
+export default {
+  data() {
+    return {
+      mobile: null
+    }
+  },
 
-  components:{
+  components: {
     NavigationMenu
+  },
+
+  created() {
+    this.checkScreen()
+    window.addEventListener('resize', this.checkScreen)
+  },
+
+  methods: {
+    checkScreen() {
+      const windowWidth = window.innerWidth
+      if (windowWidth <= 750) {
+        this.mobile = true
+        return
+      }
+      this.mobile = false
+    }
   }
+}
 </script>
 
 <template>
   <div>
-    <div class="app flex flex-column">
-      <NavigationMenu/>
+    <div v-if="!mobile" class="app flex flex-column">
+      <NavigationMenu />
       <div class="app-content flex felx-colum">
         <RouterView />
       </div>
+    </div>
+    <div v-else class="mobile-message flex flex-column">
+      <h2>sorry, this app does not suport mobile devices</h2>
+      <p>use a computer or a tablet</p>
     </div>
   </div>
 </template>
 
 <style lang="scss">
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-  background-color: #141625;
+  font-family: 'Poppins', sans-serif;
 }
 
-.app{
+.app {
   background-color: #141625;
   min-height: 100vh;
-  flex-direction: column;
-  @media(min-width: 900px){
-    flex-direction: row;
+  @media (min-width: 900px) {
+    flex-direction: row !important;
   }
-  .app-content{
+
+  .app-content {
     padding: 0 20px;
-    
+    flex: 1;
+    position: relative;
   }
+}
+
+.mobile-message {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #141625;
+  color: #fff;
+
+  p {
+    margin-top: 16px;
+  }
+}
+
+// animated invoice
+
+.invoice-enter-active,
+.invoice-leave-active {
+  transition: 0.8s ease all;
+}
+
+.invoice-enter-from,
+.invoice-leave-to {
+  transform: translateX(-700px);
 }
 
 button,
@@ -104,7 +157,7 @@ button,
 
 .status-button {
   &::before {
-    content: "";
+    content: '';
     width: 10px;
     height: 10px;
     border-radius: 50%;
